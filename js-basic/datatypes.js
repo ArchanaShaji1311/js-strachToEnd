@@ -30,3 +30,8 @@ let user = {
 console.log(typeof user)
 
 
+//(Memory concept regarding datatypes)
+//For primitive datatypes --> stack (a copy of original data is provided)
+// For non-primitive datatypes --> heap (always reference to original data is provided)
+
+
