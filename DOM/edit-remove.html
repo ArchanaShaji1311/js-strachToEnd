@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Remove</title>
+    <style>
+        .liColor{
+            color:#fff
+        }
+    </style>
+</head>
+<body >
+    <ul class="fruit">
+
+        <li>Apple</li>
+
+    </ul>
+    
+</body>
+<script>
+    function addElement (fruitName)
+    {
+        const li=document.createElement('li')
+        li.appendChild(document.createTextNode(fruitName))
+        document.querySelector('.fruit').appendChild(li)
+    
+    }
+    addElement('Mango')
+    addElement('Grapes')
+    addElement('Strawberry')
+
+    //Edit 
+
+    const secondValue = document.querySelector('li:nth-child(2)')
+   const newli=document.createElement('li')
+   newli.textContent = "Banana"
+   secondValue.replaceWith(newli)
+
+   //Remove
+   const lastFruit = document.querySelector('li:last-child')
+   lastFruit.remove()
+</script>
+</html>
