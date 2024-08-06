@@ -1,2 +1,2 @@
-# js-strachToEnd
-A code repo for javaScript, from strach to end!!
+# js-scratchToEnd
+A code repo for javaScript, from scratch to end!!
