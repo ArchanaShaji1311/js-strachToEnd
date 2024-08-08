@@ -1,0 +1,19 @@
+Javascript is:
+    Synchronous
+    Single Threaded
+
+Execution Context:
+    execute one line of code at a time
+    each operation waits for the last one to complete before executing
+
+Blocking Code vs Non Blocking Code
+   Blocking code -> block the flow of program (read file sync)
+   Non Blocking code -> does not block execution (read file async)
+
+Javascript engine is made of:
+    Memory heap 
+    Call Stack(global execution and function execution)
+
+The function that call web api like setTimeOut setTimeInterval --> goes to task queue --> the call Stack
+
+The function that call web api like fetch() --> goes to promise queue --> has higher priority --> goes to call stack fast
