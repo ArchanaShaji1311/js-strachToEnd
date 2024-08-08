@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyn</title>
+</head>
+<body>
+    <h1>Once again Async</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setInterval(function(){
+    //     console.log("Archana" , Date.now())
+    // },1000)
+
+    // const setInt = function(str)
+    // {
+    //     console.log(str , Date.now())
+    // }
+    // const sayDate = setInterval(setInt , 1000 , "Hello current date in milisecond")
+
+// Clear Interval
+//   clearInterval(sayDate)
+
+
+// Creating method to start the printing when clicking on start button and stopping when clicking stop button
+   let intervalStart;
+   document.querySelector('#start').addEventListener('click', function(){
+    const printInterval = function(str){
+        console.log(str)
+    }
+   intervalStart = setInterval(printInterval , 1000, "Archana")
+   },false)
+
+   document.querySelector('#stop').addEventListener('click',function(){
+    clearInterval(intervalStart)
+    console.log("Stopped")
+   },false)
+    
+
+</script>
+</html>
