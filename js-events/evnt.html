@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+// This approach is okay but it can create problem because it does not give much information therefore we should use eventListener because it provide ability to propogate.
+
+    // document.getElementById('owl').onclick = function()
+    // {
+    //     alert("owl clicked")
+    // }
+
+// So the other approach is event listener
+
+// document.getElementById('owl').addEventListener('click',function (evnt)
+// {
+//     console.log(evnt);
+    
+//     alert('owl clicked')
+
+// }, false)
+
+ // type, timestamp , preventDefault(),target, toElement , srcElement , currentElement, clientX , clientY , screenX , screenY , altkey , ctrlkey , shiftkey, keyCode
+
+
+// Lets understand about capturing and bubbling event 
+    //  document.getElementById('images').addEventListener('click' , function(evnt){
+    //     console.log("clicked inside the ul")
+    //  }, false)   //-> by default the parameter is false by defalut 
+
+    //  document.getElementById('owl').addEventListener('click' , function(evnt){
+    //     console.log("clicked  owl ")
+    //     evnt.stopPropagation()
+    //  }, false)
+
+ // When the third parameter is kept false or empty by default it become false , and this method is called bubbling (like a bubble it goes bottom to up) to avoid bubbling we can use stopPropagation method.
+
+ //When the third parameter is kept true then this method or event is capturing (from top to bottom)
+
+
+// preventDefault()
+   // document.getElementById('google').addEventListener('click' , function(evnt){
+    
+   //     evnt.preventDefault()
+   //     evnt.stopPropagation()
+   //     console.log("Google clicked")
+
+   // }, false)
+
+
+//Goal is to "When i click in to any image it should get vanished."
+   
+// document.querySelector('#images').addEventListener('click', function(evnt){
+//     // console.log(evnt.target.parentNode);
+
+//     let removeIt = evnt.target.parentNode
+//     removeIt.remove()
+//     // removeIt.parentNode.removeChild(removeIt)
+
+    
+
+// }, false)
+
+  // But in this way when we click on google , since the parent of li is ul so the whole page get removed so we can appply another check 
+    
+  document.querySelector('#images').addEventListener('click' , function(evnt){
+    // console.log(evnt.target.tagName)
+    if(evnt.target.tagName == 'IMG')
+  {
+    let removeIt = evnt.target.parentNode
+    removeIt.remove()
+  }
+  else{
+    evnt.target.remove()
+  }
+
+  } , false)
+
+
+
+
+
+    
+</script>
+</html>
